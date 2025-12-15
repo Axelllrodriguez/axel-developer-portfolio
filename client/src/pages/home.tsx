@@ -85,33 +85,46 @@ export default function Home() {
               <span className="text-sm font-medium text-muted-foreground">Disponible para nuevos proyectos</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
-              Construyendo productos <br className="hidden md:block" />
-              digitales, marcas y experiencias.
-            </h1>
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-10">
+              <div>
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+                  Construyendo productos <br className="hidden md:block" />
+                  digitales, marcas y experiencias.
+                </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              Hola, soy <span className="text-foreground font-semibold">Axel Rodriguez</span>. Un Desarrollador de Software especializado en crear experiencias web accesibles, perfectas y de alto rendimiento.
-            </p>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+                  Hola, soy <span className="text-foreground font-semibold">Axel Rodriguez</span>. Un Desarrollador de Software especializado en crear experiencias web accesibles, perfectas y de alto rendimiento.
+                </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                onClick={() => scrollToSection("#projects")}
-                className="h-12 px-8 rounded-full text-base font-medium"
-              >
-                Ver Proyectos
-              </Button>
-              <div className="flex gap-2">
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <Github className="w-5 h-5" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </Button>
+                <div className="flex flex-wrap gap-4">
+                  <Button 
+                    onClick={() => scrollToSection("#projects")}
+                    className="h-12 px-8 rounded-full text-base font-medium"
+                  >
+                    Ver Proyectos
+                  </Button>
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <Github className="w-5 h-5" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative aspect-square md:aspect-[4/5] w-full max-w-md mx-auto md:ml-auto rounded-2xl overflow-hidden shadow-2xl bg-secondary/10">
+                <img 
+                  src="https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png" 
+                  alt="Axel Rodriguez" 
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           </motion.div>
