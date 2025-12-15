@@ -82,16 +82,16 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              <span className="text-sm font-medium text-muted-foreground">Available for new projects</span>
+              <span className="text-sm font-medium text-muted-foreground">Disponible para nuevos proyectos</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
-              Building digital products, <br className="hidden md:block" />
-              brands, and experiences.
+              Construyendo productos <br className="hidden md:block" />
+              digitales, marcas y experiencias.
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              Hi, I'm <span className="text-foreground font-semibold">Axel Rodriguez</span>. A Software Developer specialized in building accessible, pixel-perfect, and performant web experiences.
+              Hola, soy <span className="text-foreground font-semibold">Axel Rodriguez</span>. Un Desarrollador de Software especializado en crear experiencias web accesibles, perfectas y de alto rendimiento.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -99,7 +99,7 @@ export default function Home() {
                 onClick={() => scrollToSection("#projects")}
                 className="h-12 px-8 rounded-full text-base font-medium"
               >
-                View Selected Work
+                Ver Proyectos
               </Button>
               <div className="flex gap-2">
                 <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
@@ -122,12 +122,12 @@ export default function Home() {
           <div className="border-t border-border pt-16">
             <div className="grid md:grid-cols-4 gap-8">
               <div className="md:col-span-1">
-                <h2 className="text-xl font-bold">Technical Skills</h2>
+                <h2 className="text-xl font-bold">Habilidades Técnicas</h2>
               </div>
               <div className="md:col-span-3">
                 <div className="grid gap-8">
                   <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Frontend Development</h3>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Desarrollo Frontend</h3>
                     <div className="flex flex-wrap gap-3">
                       <SkillBadge icon={Code2} name="React.js" />
                       <SkillBadge icon={Layout} name="TypeScript" />
@@ -139,7 +139,7 @@ export default function Home() {
                   </div>
                   
                   <div>
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Backend & Tools</h3>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Backend y Herramientas</h3>
                     <div className="flex flex-wrap gap-3">
                       <SkillBadge icon={Server} name="Node.js" />
                       <SkillBadge icon={Database} name="PostgreSQL" />
@@ -159,23 +159,23 @@ export default function Home() {
         <section id="projects" className="mb-24 md:mb-32">
           <div className="border-t border-border pt-16">
             <div className="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
-              <h2 className="text-3xl font-bold">Selected Work</h2>
+              <h2 className="text-3xl font-bold">Proyectos Destacados</h2>
               <a href="#" className="text-sm font-medium hover:underline flex items-center gap-1">
-                View all projects <ArrowUpRight className="w-3 h-3" />
+                Ver todos los proyectos <ArrowUpRight className="w-3 h-3" />
               </a>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               <ProjectCard 
                 title="ProFitness Web"
-                desc="A comprehensive fitness platform integrating class schedules, membership management, and trainer profiles."
+                desc="Una plataforma integral de fitness que integra horarios de clases, gestión de membresías y perfiles de entrenadores."
                 link="https://profitnesspagina.vercel.app/"
                 img={gymMockup}
                 tags={["React", "Tailwind", "Framer Motion"]}
               />
               <ProjectCard 
                 title="Farias Real Estate"
-                desc="Modern real estate listing platform with advanced filtering, map integration, and virtual tours."
+                desc="Plataforma inmobiliaria moderna con filtrado avanzado, integración de mapas y recorridos virtuales."
                 link="https://fariasyfarias.vercel.app/"
                 img={realEstateMockup}
                 tags={["Next.js", "TypeScript", "PostgreSQL"]}
@@ -189,13 +189,13 @@ export default function Home() {
           <div className="bg-secondary/20 rounded-2xl p-8 md:p-12 border border-border relative overflow-hidden">
             <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">Founder at High Impact Studio</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Fundador de High Impact Studio</h3>
                 <p className="text-muted-foreground mb-6">
-                  I lead a team of creatives and developers building high-converting digital products for businesses worldwide.
+                  Lidero un equipo de creativos y desarrolladores creando productos digitales de alto impacto para negocios en todo el mundo.
                 </p>
                 <Button asChild variant="outline" className="bg-background">
                   <a href="https://high-impact-studio.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Visit Agency Website
+                    Visitar Web de la Agencia
                   </a>
                 </Button>
               </div>
@@ -216,9 +216,9 @@ export default function Home() {
           <div className="border-t border-border pt-16">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-4xl font-bold mb-6">Let's work together</h2>
+                <h2 className="text-4xl font-bold mb-6">Trabajemos juntos</h2>
                 <p className="text-xl text-muted-foreground mb-8">
-                  Have a project in mind? I'm currently available for freelance work and open to new opportunities.
+                  ¿Tenés un proyecto en mente? Actualmente estoy disponible para trabajos freelance y nuevas oportunidades.
                 </p>
                 <div className="flex flex-col gap-4">
                   <a 
@@ -235,7 +235,7 @@ export default function Home() {
                     className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
                   >
                     <Linkedin className="w-6 h-6" />
-                    Connect on LinkedIn
+                    Conectar en LinkedIn
                   </a>
                 </div>
               </div>
@@ -244,20 +244,20 @@ export default function Home() {
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Name</label>
-                      <input type="text" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="John Doe" />
+                      <label className="text-sm font-medium">Nombre</label>
+                      <input type="text" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Juan Pérez" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Email</label>
-                      <input type="email" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="john@example.com" />
+                      <input type="email" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="juan@ejemplo.com" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Message</label>
-                    <textarea className="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Tell me about your project..."></textarea>
+                    <label className="text-sm font-medium">Mensaje</label>
+                    <textarea className="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Contame sobre tu proyecto..."></textarea>
                   </div>
                   <Button className="w-full rounded-full h-12 text-base">
-                    Send Message
+                    Enviar Mensaje
                   </Button>
                 </form>
               </div>

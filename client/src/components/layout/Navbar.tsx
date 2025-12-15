@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Github, Linkedin } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +15,10 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Work", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Sobre mí", href: "#about" },
+    { name: "Habilidades", href: "#skills" },
+    { name: "Proyectos", href: "#projects" },
+    { name: "Contacto", href: "#contact" },
   ];
 
   const scrollToSection = (id: string) => {
