@@ -85,31 +85,31 @@ export default function Home() {
               <span className="text-sm font-medium text-muted-foreground">Disponible para nuevos proyectos</span>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-10">
-              <div>
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+            <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 items-center mb-16 md:mb-24">
+              <div className="flex-1">
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
                   Construyendo productos <br className="hidden md:block" />
                   digitales, marcas y experiencias.
                 </h1>
 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
                   Hola, soy <span className="text-foreground font-semibold">Axel Rodriguez</span>. Un Desarrollador de Software especializado en crear experiencias web accesibles, perfectas y de alto rendimiento.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
                   <Button 
                     onClick={() => scrollToSection("#projects")}
-                    className="h-12 px-8 rounded-full text-base font-medium"
+                    className="h-11 px-6 rounded-full text-sm font-medium"
                   >
                     Ver Proyectos
                   </Button>
                   <div className="flex gap-2">
-                    <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                    <Button variant="outline" size="icon" className="h-11 w-11 rounded-full" asChild>
                       <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                         <Github className="w-5 h-5" />
                       </a>
                     </Button>
-                    <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                    <Button variant="outline" size="icon" className="h-11 w-11 rounded-full" asChild>
                       <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="w-5 h-5" />
                       </a>
@@ -118,13 +118,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative aspect-square md:aspect-[4/5] w-full max-w-md mx-auto md:ml-auto rounded-2xl overflow-hidden shadow-2xl bg-secondary/10">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-full md:rounded-2xl overflow-hidden shadow-2xl bg-secondary/10 border border-border/50">
                 <img 
                   src="https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png" 
                   alt="Axel Rodriguez" 
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           </motion.div>
