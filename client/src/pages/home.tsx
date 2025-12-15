@@ -88,8 +88,7 @@ export default function Home() {
             <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 items-center mb-16 md:mb-24">
               <div className="flex-1">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
-                  Construyendo productos <br className="hidden md:block" />
-                  digitales, marcas y experiencias.
+                  Construyo páginas webs, apps y softwares a medida para profesionalizar tu marca.
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
