@@ -1,11 +1,60 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, ExternalLink, MessageCircle, Calendar } from "lucide-react";
+import { 
+  ArrowUpRight, 
+  Github, 
+  Linkedin, 
+  Code2, 
+  Database, 
+  Layout, 
+  Server, 
+  Globe, 
+  Smartphone,
+  Terminal,
+  Cpu,
+  Mail
+} from "lucide-react";
 import gymMockup from "@assets/generated_images/modern_gym_website_dashboard_mockup.png";
 import realEstateMockup from "@assets/generated_images/modern_real_estate_website_mockup.png";
+
+// Simple, clean skill component
+const SkillBadge = ({ icon: Icon, name }: { icon: any, name: string }) => (
+  <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-md border border-border/50 hover:border-border transition-colors">
+    <Icon className="w-4 h-4 text-foreground" />
+    <span className="text-sm font-medium">{name}</span>
+  </div>
+);
+
+// Project Card - Minimalist
+const ProjectCard = ({ title, desc, link, img, tags }: { title: string, desc: string, link: string, img: string, tags: string[] }) => (
+  <a href={link} target="_blank" rel="noopener noreferrer" className="group block">
+    <div className="overflow-hidden rounded-lg bg-secondary/20 border border-border transition-all duration-300 hover:border-foreground/20">
+      <div className="aspect-video overflow-hidden">
+        <img 
+          src={img} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-4">
+          <h3 className="text-xl font-bold group-hover:text-primary transition-colors">{title}</h3>
+          <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+        </div>
+        <p className="text-muted-foreground mb-6 line-clamp-2">{desc}</p>
+        <div className="flex flex-wrap gap-2">
+          {tags.map(tag => (
+            <span key={tag} className="text-xs font-medium px-2 py-1 bg-secondary rounded text-secondary-foreground">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </a>
+);
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -16,291 +65,206 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen text-foreground font-sans selection:bg-white/20">
-      <BackgroundBeams />
+    <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
 
-      <main>
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20">
-          <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] mb-6 tracking-tight">
-                Desarrollo software moderno que <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">convierte visitantes en clientes</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-lg leading-relaxed">
-                Creamos páginas web, aplicaciones y sistemas a medida para negocios que buscan escalar, diferenciarse y vender más.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-black hover:bg-gray-200 rounded-full px-8 text-base h-12"
-                  onClick={() => scrollToSection("#contact")}
-                >
-                  Agendar llamada
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="rounded-full px-8 text-base h-12 border-white/20 hover:bg-white/10 hover:text-white"
-                  onClick={() => scrollToSection("#projects")}
-                >
-                  Ver proyectos
-                </Button>
-              </div>
-            </motion.div>
+      <main className="container mx-auto px-6 max-w-5xl pt-32 pb-24">
+        
+        {/* Header / Hero - Inspired by benscott.dev & safetpojskic.com */}
+        <section className="mb-24 md:mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <span className="text-sm font-medium text-muted-foreground">Available for new projects</span>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative hidden lg:block"
-            >
-              <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5 backdrop-blur-sm p-2">
-                <img 
-                  src="https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png" 
-                  alt="Axel Rodriguez" 
-                  className="w-full h-auto rounded-xl object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
-              </div>
-              {/* Decor elements */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
-            </motion.div>
-          </div>
-        </section>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+              Building digital products, <br className="hidden md:block" />
+              brands, and experiences.
+            </h1>
 
-        {/* About Section */}
-        <section id="about" className="py-24 relative">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-sm font-mono text-gray-500 uppercase tracking-wider mb-4 block">Sobre mí</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-display mb-8">
-                Software Developer certificado por Digital House, Globant y Mercado Libre
-              </h2>
-              
-              <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
-                <p>
-                  Mi nombre es <strong className="text-white">Axel Rodriguez</strong>, tengo 24 años y soy de Córdoba, Argentina.
-                </p>
-                <p>
-                  Me especializo en el desarrollo de <strong className="text-white">páginas web, aplicaciones y sistemas profesionales a medida</strong>, enfocados en resolver problemas reales y generar resultados concretos para negocios y emprendedores.
-                </p>
-                <p>
-                  Actualmente soy estudiante universitario de la <strong className="text-white">Tecnicatura en Desarrollo de Software del ISPC (Córdoba)</strong>, combinando formación académica con experiencia práctica en proyectos reales.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
+              Hi, I'm <span className="text-foreground font-semibold">Axel Rodriguez</span>. A Software Developer specialized in building accessible, pixel-perfect, and performant web experiences.
+            </p>
 
-        {/* Agency Section */}
-        <section id="agency" className="py-24 bg-white/5 border-y border-white/5">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+            <div className="flex flex-wrap gap-4">
+              <Button 
+                onClick={() => scrollToSection("#projects")}
+                className="h-12 px-8 rounded-full text-base font-medium"
               >
-                <span className="text-sm font-mono text-gray-500 uppercase tracking-wider mb-4 block">Mi Agencia</span>
-                <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">High Impact Studio</h2>
-                <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                  Trabajo junto a mi equipo en <strong>High Impact Studio</strong>, una agencia enfocada en crear productos digitales de alto impacto: sitios web que venden, aplicaciones escalables y software a medida para empresas.
-                </p>
-                <p className="text-lg text-gray-400 mb-8">
-                  Te invito a conocer nuestra web y descubrir cómo podemos ayudarte a llevar tu negocio al siguiente nivel.
-                </p>
-                <Button 
-                  asChild
-                  className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-12"
-                >
-                  <a href="https://high-impact-studio.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Visitar High Impact Studio <ExternalLink className="ml-2 w-4 h-4" />
+                View Selected Work
+              </Button>
+              <div className="flex gap-2">
+                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-5 h-5" />
                   </a>
                 </Button>
-              </motion.div>
+                <Button variant="outline" size="icon" className="h-12 w-12 rounded-full" asChild>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        </section>
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-background aspect-video">
-                  <iframe 
+        {/* Skills Section */}
+        <section id="skills" className="mb-24 md:mb-32">
+          <div className="border-t border-border pt-16">
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="md:col-span-1">
+                <h2 className="text-xl font-bold">Technical Skills</h2>
+              </div>
+              <div className="md:col-span-3">
+                <div className="grid gap-8">
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Frontend Development</h3>
+                    <div className="flex flex-wrap gap-3">
+                      <SkillBadge icon={Code2} name="React.js" />
+                      <SkillBadge icon={Layout} name="TypeScript" />
+                      <SkillBadge icon={Globe} name="Next.js" />
+                      <SkillBadge icon={Smartphone} name="Tailwind CSS" />
+                      <SkillBadge icon={Layout} name="Framer Motion" />
+                      <SkillBadge icon={Globe} name="HTML5 & CSS3" />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Backend & Tools</h3>
+                    <div className="flex flex-wrap gap-3">
+                      <SkillBadge icon={Server} name="Node.js" />
+                      <SkillBadge icon={Database} name="PostgreSQL" />
+                      <SkillBadge icon={Database} name="MongoDB" />
+                      <SkillBadge icon={Terminal} name="Git & GitHub" />
+                      <SkillBadge icon={Cpu} name="Docker" />
+                      <SkillBadge icon={Globe} name="Vercel" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Selected Work */}
+        <section id="projects" className="mb-24 md:mb-32">
+          <div className="border-t border-border pt-16">
+            <div className="flex flex-col md:flex-row justify-between items-baseline mb-12 gap-4">
+              <h2 className="text-3xl font-bold">Selected Work</h2>
+              <a href="#" className="text-sm font-medium hover:underline flex items-center gap-1">
+                View all projects <ArrowUpRight className="w-3 h-3" />
+              </a>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <ProjectCard 
+                title="ProFitness Web"
+                desc="A comprehensive fitness platform integrating class schedules, membership management, and trainer profiles."
+                link="https://profitnesspagina.vercel.app/"
+                img={gymMockup}
+                tags={["React", "Tailwind", "Framer Motion"]}
+              />
+              <ProjectCard 
+                title="Farias Real Estate"
+                desc="Modern real estate listing platform with advanced filtering, map integration, and virtual tours."
+                link="https://fariasyfarias.vercel.app/"
+                img={realEstateMockup}
+                tags={["Next.js", "TypeScript", "PostgreSQL"]}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Agency Mini-Section */}
+        <section className="mb-24 md:mb-32">
+          <div className="bg-secondary/20 rounded-2xl p-8 md:p-12 border border-border relative overflow-hidden">
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Founder at High Impact Studio</h3>
+                <p className="text-muted-foreground mb-6">
+                  I lead a team of creatives and developers building high-converting digital products for businesses worldwide.
+                </p>
+                <Button asChild variant="outline" className="bg-background">
+                  <a href="https://high-impact-studio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    Visit Agency Website
+                  </a>
+                </Button>
+              </div>
+              <div className="relative aspect-video rounded-lg overflow-hidden border border-border shadow-lg bg-background">
+                 <iframe 
                     src="https://high-impact-studio.vercel.app/" 
                     className="w-full h-full border-0 pointer-events-none"
                     title="High Impact Studio Preview"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors pointer-events-none" />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="py-24">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-              <div>
-                <span className="text-sm font-mono text-gray-500 uppercase tracking-wider mb-4 block">Portfolio</span>
-                <h2 className="text-3xl md:text-5xl font-bold font-display">Proyectos destacados</h2>
               </div>
-              <Button variant="outline" className="rounded-full border-white/20">
-                Ver todos los proyectos
-              </Button>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Project 1 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="group cursor-pointer"
-              >
-                <a href="https://profitnesspagina.vercel.app/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/5 mb-6">
-                    <img 
-                      src={gymMockup} 
-                      alt="Web Gimnasio" 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="bg-white text-black px-6 py-3 rounded-full font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        Ver proyecto <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold font-display mb-2 group-hover:text-white/80 transition-colors">Web Gimnasio</h3>
-                  <p className="text-gray-400">Diseño moderno para centro de fitness con integración de horarios.</p>
-                </a>
-              </motion.div>
-
-              {/* Project 2 */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="group cursor-pointer"
-              >
-                <a href="https://fariasyfarias.vercel.app/" target="_blank" rel="noopener noreferrer" className="block">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/5 mb-6">
-                    <img 
-                      src={realEstateMockup} 
-                      alt="Web Inmobiliaria" 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="bg-white text-black px-6 py-3 rounded-full font-medium flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        Ver proyecto <ArrowRight className="w-4 h-4" />
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold font-display mb-2 group-hover:text-white/80 transition-colors">Web Inmobiliaria</h3>
-                  <p className="text-gray-400">Plataforma elegante para visualización de propiedades y contacto.</p>
-                </a>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section id="testimonials" className="py-24 bg-white/5 border-y border-white/5">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <span className="text-sm font-mono text-gray-500 uppercase tracking-wider mb-4 block">Testimonios</span>
-              <h2 className="text-3xl md:text-5xl font-bold font-display">Lo que dicen mis clientes</h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-background border border-white/10 p-8 rounded-2xl hover:border-white/20 transition-colors"
-                >
-                  <div className="flex gap-1 text-yellow-500 mb-6">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} size={16} fill="currentColor" />
-                    ))}
-                  </div>
-                  <p className="text-gray-300 mb-8 leading-relaxed">
-                    "Excelente trabajo. Axel entendió perfectamente lo que necesitábamos y entregó una web que superó nuestras expectativas. La comunicación fue fluida y el resultado impecable."
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold">
-                      C{i}
-                    </div>
-                    <div>
-                      <h4 className="font-bold font-display">Cliente {i}</h4>
-                      <p className="text-xs text-gray-500 uppercase">CEO, Empresa {i}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/10 pointer-events-none"></div>
-          
-          <div className="container mx-auto px-6 relative z-10 text-center max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-4xl md:text-6xl font-bold font-display mb-8">Trabajemos juntos</h2>
-              <p className="text-xl text-gray-400 mb-12 leading-relaxed">
-                ¿Querés una página web, app o sistema que realmente funcione para tu negocio?
-                <br className="hidden md:block" />
-                Agendá una llamada o escribime directamente y vemos cómo ayudarte.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-black hover:bg-gray-200 rounded-full px-8 h-14 text-lg w-full sm:w-auto"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Agendar llamada
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-green-500/10 hover:text-green-400 hover:border-green-500/50 w-full sm:w-auto transition-all"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Hablar por WhatsApp
-                </Button>
+        <section id="contact">
+          <div className="border-t border-border pt-16">
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-4xl font-bold mb-6">Let's work together</h2>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Have a project in mind? I'm currently available for freelance work and open to new opportunities.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <a 
+                    href="mailto:hello@axelrodriguez.dev" 
+                    className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    <Mail className="w-6 h-6" />
+                    hello@axelrodriguez.dev
+                  </a>
+                  <a 
+                    href="https://linkedin.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
               </div>
-            </motion.div>
+              
+              <div className="bg-secondary/10 p-8 rounded-xl border border-border">
+                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Name</label>
+                      <input type="text" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="John Doe" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Email</label>
+                      <input type="email" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="john@example.com" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Message</label>
+                    <textarea className="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Tell me about your project..."></textarea>
+                  </div>
+                  <Button className="w-full rounded-full h-12 text-base">
+                    Send Message
+                  </Button>
+                </form>
+              </div>
+            </div>
           </div>
         </section>
+
       </main>
 
       <Footer />
