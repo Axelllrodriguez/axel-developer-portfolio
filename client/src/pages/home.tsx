@@ -118,7 +118,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-full md:rounded-2xl overflow-hidden shadow-2xl bg-secondary/10 border border-border/50">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-full overflow-hidden shadow-2xl bg-secondary/10 border border-border/50">
                 <img 
                   src="https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png" 
                   alt="Axel Rodriguez" 
