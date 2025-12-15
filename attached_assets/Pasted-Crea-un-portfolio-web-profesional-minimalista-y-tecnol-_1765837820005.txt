@@ -1,0 +1,181 @@
+Crea un **portfolio web profesional, minimalista y tecnológico** para un Software Developer orientado a cerrar clientes. El sitio debe estar optimizado para conversión, con llamados claros a **agendar una llamada** y **contactar por WhatsApp**, y transmitir autoridad, confianza y modernidad.
+
+El proyecto debe estar pensado para ejecutarse y editarse en **Replit**, utilizando **React + Vite** con **Tailwind CSS**, componentes funcionales y un enfoque mobile-first.
+
+---
+
+## 🎯 Objetivo del sitio
+
+* Presentar el perfil profesional de **Axel Rodriguez**
+* Mostrar proyectos reales
+* Generar confianza con testimonios
+* Incentivar a crear una **web / app / software** con su agencia
+* Convertir visitas en llamadas o mensajes
+
+---
+
+## 🧠 Estilo visual
+
+* **Minimalista + tecnológico**
+* Sensación premium
+* Animaciones suaves (Framer Motion)
+* Espacios amplios y jerarquía clara
+* Enfoque en legibilidad y CTA
+
+### Background
+
+Usar como fondo animado principal:
+👉 [https://21st.dev/aceternity/background-beams/default](https://21st.dev/aceternity/background-beams/default)
+
+Debe ocupar todo el viewport y mantenerse detrás del contenido con buen contraste.
+
+---
+
+## 🧱 Estructura del sitio
+
+### Header (Sticky)
+
+* Logo / Nombre: **Axel Rodriguez**
+* Navegación:
+
+  * Sobre mí
+  * Mi agencia
+  * Proyectos
+  * Testimonios
+  * Contacto
+* Botón CTA destacado: **Agendar llamada**
+
+---
+
+### Hero Section
+
+**Título principal (impactante):**
+"Desarrollo software moderno que convierte visitantes en clientes"
+
+**Subtítulo:**
+Creamos páginas web, aplicaciones y sistemas a medida para negocios que buscan escalar, diferenciarse y vender más.
+
+**CTAs:**
+
+* Botón primario: **Agendar llamada**
+* Botón secundario: **Ver proyectos**
+
+**Imagen:**
+Foto profesional de Axel:
+[https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png](https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png)
+
+---
+
+### Sobre mí
+
+**Título:** Sobre mí
+
+**Texto corregido y profesional:**
+
+Mi nombre es **Axel Rodriguez**, tengo 24 años y soy de Córdoba, Argentina. Soy **Software Developer certificado por Digital House, Globant y Mercado Libre**.
+
+Me especializo en el desarrollo de **páginas web, aplicaciones y sistemas profesionales a medida**, enfocados en resolver problemas reales y generar resultados concretos para negocios y emprendedores.
+
+Actualmente soy estudiante universitario de la **Tecnicatura en Desarrollo de Software del ISPC (Córdoba)**, combinando formación académica con experiencia práctica en proyectos reales.
+
+---
+
+### Mi Agencia
+
+**Título:** Mi agencia
+
+**Texto:**
+Trabajo junto a mi equipo en **High Impact Studio**, una agencia enfocada en crear productos digitales de alto impacto: sitios web que venden, aplicaciones escalables y software a medida para empresas.
+
+Te invito a conocer nuestra web y descubrir cómo podemos ayudarte a llevar tu negocio al siguiente nivel.
+
+**Preview embebida (iframe):**
+[https://high-impact-studio.vercel.app/](https://high-impact-studio.vercel.app/)
+
+Botón: **Visitar High Impact Studio**
+
+---
+
+### Proyectos
+
+**Título:** Proyectos destacados
+
+Mostrar cards con imagen, descripción breve y botón "Ver proyecto":
+
+1️⃣ **Web Gimnasio**
+[https://profitnesspagina.vercel.app/](https://profitnesspagina.vercel.app/)
+
+2️⃣ **Web Inmobiliaria**
+[https://fariasyfarias.vercel.app/](https://fariasyfarias.vercel.app/)
+
+Las cards deben tener hover elegante y animación sutil.
+
+---
+
+### Testimonios
+
+**Título:** Testimonios
+
+Diseñar 3 cards modernas con:
+
+* Nombre del cliente
+* Texto de opinión
+* Estrellas o ícono de confianza
+
+(Dejar textos placeholder listos para reemplazar)
+
+---
+
+### Contacto (Alta conversión)
+
+**Título:** Trabajemos juntos
+
+**Texto:**
+¿Querés una página web, app o sistema que realmente funcione para tu negocio?
+
+Agendá una llamada o escribime directamente y vemos cómo ayudarte.
+
+**CTAs:**
+
+* Botón grande: **Agendar llamada**
+* Botón secundario: **Hablar por WhatsApp**
+
+---
+
+### Redes Sociales
+
+Mostrar íconos con links:
+
+* Instagram
+* TikTok
+
+Estilo limpio, con hover animado.
+
+---
+
+### Footer
+
+* Nombre: Axel Rodriguez
+* Rol: Software Developer
+* Redes sociales
+
+**Copyright:**
+© 2025 — Creado por **High Impact Studio** (linkeado a [https://high-impact-studio.vercel.app/](https://high-impact-studio.vercel.app/))
+
+---
+
+## 🛠️ Requisitos técnicos
+
+* React + Vite
+* Tailwind CSS
+* Framer Motion para animaciones
+* Componentes reutilizables
+* Código limpio y bien estructurado
+* Totalmente responsive
+* Accesible y rápido
+
+---
+
+## 🚀 Resultado esperado
+
+Un portfolio moderno, profesional y orientado a conversión, listo para usar como carta de presentación y cerrar clientes de desarrollo web, apps y software desde Replit.
