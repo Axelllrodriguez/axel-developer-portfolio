@@ -2,15 +2,18 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { 
-  ArrowUpRight, 
-  Github, 
-  Linkedin, 
-  Code2, 
-  Database, 
-  Layout, 
-  Server, 
-  Globe, 
+import { TechBackground } from "@/components/ui/tech-background";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import {
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Code2,
+  Database,
+  Layout,
+  Server,
+  Globe,
   Smartphone,
   Terminal,
   Cpu,
@@ -21,7 +24,7 @@ import realEstateMockup from "@assets/generated_images/modern_real_estate_websit
 
 // Simple, clean skill component
 const SkillBadge = ({ icon: Icon, name }: { icon: any, name: string }) => (
-  <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-md border border-border/50 hover:border-border transition-colors">
+  <div className="flex items-center gap-2 bg-secondary/70 backdrop-blur-sm px-4 py-2 rounded-md border border-border/50 hover:border-border transition-colors">
     <Icon className="w-4 h-4 text-foreground" />
     <span className="text-sm font-medium">{name}</span>
   </div>
@@ -30,11 +33,11 @@ const SkillBadge = ({ icon: Icon, name }: { icon: any, name: string }) => (
 // Project Card - Minimalist
 const ProjectCard = ({ title, desc, link, img, tags }: { title: string, desc: string, link: string, img: string, tags: string[] }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" className="group block">
-    <div className="overflow-hidden rounded-lg bg-secondary/20 border border-border transition-all duration-300 hover:border-foreground/20">
+    <div className="overflow-hidden rounded-lg bg-secondary/60 backdrop-blur-md border border-border transition-all duration-300 hover:border-foreground/20 hover:shadow-xl hover:shadow-blue-500/10">
       <div className="aspect-video overflow-hidden">
-        <img 
-          src={img} 
-          alt={title} 
+        <img
+          src={img}
+          alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>
@@ -57,6 +60,9 @@ const ProjectCard = ({ title, desc, link, img, tags }: { title: string, desc: st
 );
 
 export default function Home() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.querySelector(id);
     if (element) {
@@ -64,12 +70,47 @@ export default function Home() {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "¡Mensaje enviado!",
+          description: "Gracias por contactarme. Te responderé pronto.",
+        });
+        e.currentTarget.reset();
+      } else {
+        throw new Error("Error al enviar el formulario");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="min-h-screen text-foreground font-sans relative">
+      <TechBackground />
       <Navbar />
 
       <main className="container mx-auto px-6 max-w-5xl pt-32 pb-24">
-        
+
         {/* Header / Hero - Inspired by benscott.dev & safetpojskic.com */}
         <section className="mb-24 md:mb-32">
           <motion.div
@@ -96,7 +137,7 @@ export default function Home() {
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button 
+                  <Button
                     onClick={() => scrollToSection("#projects")}
                     className="h-11 px-6 rounded-full text-sm font-medium"
                   >
@@ -104,12 +145,12 @@ export default function Home() {
                   </Button>
                   <div className="flex gap-2">
                     <Button variant="outline" size="icon" className="h-11 w-11 rounded-full" asChild>
-                      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/Axelllrodriguez" target="_blank" rel="noopener noreferrer">
                         <Github className="w-5 h-5" />
                       </a>
                     </Button>
                     <Button variant="outline" size="icon" className="h-11 w-11 rounded-full" asChild>
-                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.linkedin.com/in/axel-rodriguez-16b7a3261/" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="w-5 h-5" />
                       </a>
                     </Button>
@@ -118,9 +159,9 @@ export default function Home() {
               </div>
 
               <div className="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-full overflow-hidden shadow-2xl bg-secondary/10 border border-border/50">
-                <img 
-                  src="https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png" 
-                  alt="Axel Rodriguez" 
+                <img
+                  src="https://res.cloudinary.com/dwspyodrs/image/upload/v1764303488/Webaxel_-_1_gtpzmg.png"
+                  alt="Axel Rodriguez"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -148,7 +189,7 @@ export default function Home() {
                       <SkillBadge icon={Globe} name="HTML5 & CSS3" />
                     </div>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Backend y Herramientas</h3>
                     <div className="flex flex-wrap gap-3">
@@ -177,14 +218,14 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <ProjectCard 
+              <ProjectCard
                 title="ProFitness Web"
                 desc="Una plataforma integral de fitness que integra horarios de clases, gestión de membresías y perfiles de entrenadores."
                 link="https://profitnesspagina.vercel.app/"
                 img={gymMockup}
                 tags={["React", "Tailwind", "Framer Motion"]}
               />
-              <ProjectCard 
+              <ProjectCard
                 title="Farias Real Estate"
                 desc="Plataforma inmobiliaria moderna con filtrado avanzado, integración de mapas y recorridos virtuales."
                 link="https://fariasyfarias.vercel.app/"
@@ -211,12 +252,12 @@ export default function Home() {
                 </Button>
               </div>
               <div className="relative aspect-video rounded-lg overflow-hidden border border-border shadow-lg bg-background">
-                 <iframe 
-                    src="https://high-impact-studio.vercel.app/" 
-                    className="w-full h-full border-0 pointer-events-none"
-                    title="High Impact Studio Preview"
-                    loading="lazy"
-                  />
+                <iframe
+                  src="https://high-impact-studio.vercel.app/"
+                  className="w-full h-full border-0 pointer-events-none"
+                  title="High Impact Studio Preview"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -232,43 +273,83 @@ export default function Home() {
                   ¿Tenés un proyecto en mente? Actualmente estoy disponible para trabajos freelance y nuevas oportunidades.
                 </p>
                 <div className="flex flex-col gap-4">
-                  <a 
-                    href="mailto:hello@axelrodriguez.dev" 
+                  <a
+                    href="mailto:studiohighimpact@gmail.com"
                     className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
                   >
                     <Mail className="w-6 h-6" />
-                    hello@axelrodriguez.dev
+                    studiohighimpact@gmail.com
                   </a>
-                  <a 
-                    href="https://linkedin.com" 
-                    target="_blank" 
+                  <a
+                    href="https://www.linkedin.com/in/axel-rodriguez-16b7a3261/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
                   >
                     <Linkedin className="w-6 h-6" />
                     Conectar en LinkedIn
                   </a>
+                  <a
+                    href="https://wa.link/ht65k9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-lg font-medium text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors"
+                  >
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                    Chatear en WhatsApp
+                  </a>
                 </div>
               </div>
-              
+
               <div className="bg-secondary/10 p-8 rounded-xl border border-border">
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  {/* Web3Forms Access Key */}
+                  <input type="hidden" name="access_key" value="9ce7d26a-3adf-47e8-984c-6243214004e8" />
+                  <input type="hidden" name="subject" value="Nuevo mensaje desde Portfolio - Axel Rodriguez" />
+                  <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Nombre</label>
-                      <input type="text" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Juan Pérez" />
+                      <label htmlFor="name" className="text-sm font-medium">Nombre</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        placeholder="Juan Pérez"
+                      />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Email</label>
-                      <input type="email" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="juan@ejemplo.com" />
+                      <label htmlFor="email" className="text-sm font-medium">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        placeholder="juan@ejemplo.com"
+                      />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Mensaje</label>
-                    <textarea className="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Contame sobre tu proyecto..."></textarea>
+                    <label htmlFor="message" className="text-sm font-medium">Mensaje</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      className="w-full min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="Contame sobre tu proyecto..."
+                    ></textarea>
                   </div>
-                  <Button className="w-full rounded-full h-12 text-base">
-                    Enviar Mensaje
+                  <Button
+                    type="submit"
+                    className="w-full rounded-full h-12 text-base"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
                   </Button>
                 </form>
               </div>
